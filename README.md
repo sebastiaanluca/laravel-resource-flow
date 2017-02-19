@@ -10,6 +10,21 @@
 
 Quickly scaffold access to a resource.
 
+## Table of contents
+
+* [Requirements](#requirements)
+* [Install](#install)
+* [Usage](#usage)
+    + [Base Eloquent model](#base-eloquent-model)
+    + [Module service provider](#module-service-provider)
+    + [Queueable job](#queueable-job)
+* [Change log](#change-log)
+* [Testing](#testing)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [License](#license)
+
 ## Requirements
 
 - PHP 7.1 or higher
@@ -25,7 +40,15 @@ composer require sebastiaanluca/laravel-resource-flow
 
 ## Usage
 
-…
+## Scaffolding
+
+### Module service provider
+
+For use with [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
+
+### Base Eloquent model
+
+### Queueable job
 
 ## Change log
 

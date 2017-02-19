@@ -44,6 +44,9 @@
             "SebastiaanLuca\\Flow\\Tests\\": "tests"
         }
     },
+    "suggest": {
+        "nwidart/laravel-modules": "Easy Laravel module management."
+    },
     "scripts": {
         "test": "phpunit"
     },
