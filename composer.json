@@ -1,0 +1,59 @@
+{
+    "name": "sebastiaanluca/laravel-resource-flow",
+    "type": "library",
+    "description": "Quickly scaffold access to a resource.",
+    "keywords": [
+        "Laravel",
+        "resource",
+        "flow",
+        "eloquent",
+        "model",
+        "module",
+        "migration",
+        "controller",
+        "validator",
+        "route",
+        "router"
+    ],
+    "homepage": "https://github.com/sebastiaanluca/laravel-resource-flow",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Luca",
+            "email": "hello@sebastiaanluca.com",
+            "homepage": "https://www.sebastiaanluca.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "laravel/framework": "^5.4"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.4.2",
+        "phpunit/phpunit": "^6",
+        "raveren/kint": "^1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SebastiaanLuca\\Flow\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SebastiaanLuca\\Flow\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
