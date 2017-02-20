@@ -1,4 +1,4 @@
-# Laravel Unbreakable Migrations
+# Laravel Resource Flow
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -8,7 +8,7 @@
 [![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
 [![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/laravel-resource-flow%20via%20%40sebastiaanluca)
 
-Quickly scaffold access to a resource.
+Quickly scaffold a resource.
 
 ## Table of contents
 
