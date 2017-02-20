@@ -22,6 +22,13 @@ abstract class ModuleServiceProvider extends ServiceProvider
     protected $instance;
 
     /**
+     * The routers to be automatically mapped.
+     *
+     * @var array
+     */
+    protected $routers = [];
+
+    /**
      * Register the application services.
      */
     public function register()
@@ -44,6 +51,7 @@ abstract class ModuleServiceProvider extends ServiceProvider
         $this->registerPublishableResources();
         $this->mapMorphTypes();
         $this->bootMiddleware(app(Kernel::class), app('router'));
+        $this->mapPredefinedRoutes();
         $this->mapRoutes();
         $this->registerListeners();
     }
@@ -140,6 +148,16 @@ abstract class ModuleServiceProvider extends ServiceProvider
     protected function bootMiddleware(Kernel $kernel, Router $router)
     {
         //
+    }
+
+    /**
+     * Map out all predefined module routes.
+     */
+    protected function mapPredefinedRoutes()
+    {
+        foreach ($this->routers as $router) {
+            $this->app->make($router);
+        }
     }
 
     /**

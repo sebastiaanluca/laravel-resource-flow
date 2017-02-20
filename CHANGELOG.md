@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Added
 
-- Module service provider
-- Base Eloquent model
-- Queueable job
+- Added module service provider
+- Added automated router mapping in the module service provider
+- Added a base Eloquent model
+- Added a queueable job
