@@ -33,7 +33,7 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (! app()->environment('production')) {
+        if (app()->environment('local')) {
             $this->registerEloquentFactoriesFrom($this->getModulePath() . '/database/factories');
         }
 
