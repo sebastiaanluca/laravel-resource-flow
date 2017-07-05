@@ -10,6 +10,16 @@ use Illuminate\Support\ServiceProvider;
 abstract class ModuleServiceProvider extends ServiceProvider
 {
     /**
+     * @var array
+     */
+    protected static $localEnvironments = [
+        'local',
+        'dev',
+        'development',
+        'testing',
+    ];
+
+    /**
      * The (preferably lowercase) module name to use when publishing packages or loading resources.
      *
      * @var string
@@ -33,7 +43,7 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (app()->environment('local')) {
+        if (app()->environment(static::$localEnvironments)) {
             $this->registerEloquentFactoriesFrom($this->getModulePath() . '/database/factories');
         }
 
