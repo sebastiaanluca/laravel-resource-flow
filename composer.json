@@ -3,12 +3,11 @@
     "type": "library",
     "description": "Quickly scaffold access to a resource.",
     "keywords": [
-        "Laravel",
+        "laravel",
         "resource",
-        "flow",
+        "module",
         "eloquent",
         "model",
-        "module",
         "migration",
         "controller",
         "validator",
@@ -30,9 +29,9 @@
         "laravel/framework": "^5.4"
     },
     "require-dev": {
+        "kint-php/kint": "^2.1",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6",
-        "raveren/kint": "^1"
+        "phpunit/phpunit": "^6.2"
     },
     "autoload": {
         "psr-4": {
@@ -45,18 +44,21 @@
         }
     },
     "suggest": {
-        "nwidart/laravel-modules": "Easy Laravel module management."
-    },
-    "scripts": {
-        "test": "phpunit"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
+        "nwidart/laravel-modules": "Organize your domain logic into logical modules."
     },
     "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Flow\\Providers\\ResourceFlowServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
 }
