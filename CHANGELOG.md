@@ -12,3 +12,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added automated router mapping in the module service provider
 - Added a base Eloquent model
 - Added a queueable job
+- Added auto-discovery
+- Added a test suite and tests
+- Updated documents

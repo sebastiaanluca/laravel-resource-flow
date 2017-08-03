@@ -1,54 +1,82 @@
 # Laravel Resource Flow
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Latest stable release][version-badge]][link-packagist]
+[![Software license][license-badge]](LICENSE.md)
+[![Build status][travis-badge]][link-travis]
+[![Total downloads][downloads-badge]][link-packagist]
 
-[![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
-[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/laravel-resource-flow%20via%20%40sebastiaanluca)
+[![Read my blog][blog-link-badge]][link-blog]
+[![View my other packages and projects][packages-link-badge]][link-packages]
+[![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
+[![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-Quickly scaffold a resource.
+__Quickly scaffold access to a resource.__
 
 ## Table of contents
 
-* [Requirements](#requirements)
-* [Install](#install)
-* [Usage](#usage)
-    + [Base Eloquent model](#base-eloquent-model)
-    + [Module service provider](#module-service-provider)
-    + [Queueable job](#queueable-job)
-* [Change log](#change-log)
-* [Testing](#testing)
-* [Contributing](#contributing)
-* [Security](#security)
-* [Credits](#credits)
-* [License](#license)
+- [Requirements](#requirements)
+- [How to install](#how-to-install)
+    - [Laravel 5.5](#laravel-55)
+    - [Laravel 5.4](#laravel-54)
+- [How to use](#how-to-use)
+- [License](#license)
+- [Change log](#change-log)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Credits](#credits)
+- [About](#about)
 
 ## Requirements
 
 - PHP 7.1 or higher
 - Laravel 5.4 or higher
 
-## Install
+## How to install
 
-Via Composer:
+### Laravel 5.5
 
-``` bash
+From Laravel 5.5 and onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
+
+```bash
 composer require sebastiaanluca/laravel-resource-flow
 ```
 
-## Usage
+### Laravel 5.4
 
-## Scaffolding
+Install the package through Composer by using the following command:
 
-### Module service provider
+```bash
+composer require sebastiaanluca/laravel-resource-flow
+```
 
-For use with [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
+Add the service provider to the `providers` array in your `config/app.php` file:
 
-### Base Eloquent model
+```php
+'providers' => [
 
-### Queueable job
+    SebastiaanLuca\Flow\Providers\ResourceFlowServiceProvider::class,
+
+]
+```
+
+## How to use
+
+### Scaffolding a resource
+
+### Individual use of classes
+
+#### Base Eloquent model
+
+#### Queueable job
+
+### Works great with modules
+
+See [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
+
+## License
+
+This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 ## Change log
 
@@ -67,30 +95,37 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email security@sebastiaanluca.com instead of using the issue tracker.
+If you discover any security related issues, please email [hello@sebastiaanluca.com][link-author-email] instead of using the issue tracker.
 
 ## Credits
 
-- [Sebastiaan Luca][link-author]
+- [Sebastiaan Luca][link-github-profile]
 - [All Contributors][link-contributors]
 
 ## About
 
-My name is Sebastiaan and I'm a freelance back-end developer specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
 
-## License
+Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-resource-flow/version
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-resource-flow/master.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-resource-flow.svg
 
-[ico-version]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-resource-flow.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/sebastiaanluca/laravel-resource-flow/master.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-resource-flow.svg?style=flat-square
+[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
+[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
+[twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
+[twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-resource-flow
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-resource-flow
-[link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-resource-flow
 [link-contributors]: ../../contributors
-[link-author]: https://github.com/sebastiaanluca
-[author-portfolio]: http://www.sebastiaanluca.com
-[author-email]: mailto:hello@sebastiaanluca.com
+
+[link-portfolio]: https://www.sebastiaanluca.com
+[link-blog]: https://blog.sebastiaanluca.com
+[link-packages]: https://packagist.org/packages/sebastiaanluca
+[link-twitter]: https://twitter.com/sebastiaanluca
+[link-twitter-share]: https://twitter.com/intent/tweet?text=Quickly%20scaffold%20a%20resource.%20https%3A%2F%2Fgithub.com%2Fsebastiaanluca%2Flaravel-helpers%20via%20%40sebastiaanluca
+[link-github-profile]: https://github.com/sebastiaanluca
+[link-author-email]: mailto:hello@sebastiaanluca.com
