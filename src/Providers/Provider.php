@@ -1,35 +1,19 @@
 <?php
 
-namespace SebastiaanLuca\Flow\Modules;
+namespace SebastiaanLuca\Flow\Providers;
 
 use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
-abstract class ModuleServiceProvider extends ServiceProvider
+abstract class Provider extends ServiceProvider
 {
-    /**
-     * @var array
-     */
-    protected static $localEnvironments = [
-        'local',
-        'dev',
-        'development',
-        'testing',
-    ];
-
     /**
      * The (preferably lowercase) module name to use when publishing packages or loading resources.
      *
      * @var string
      */
-    protected $module = '';
-
-    /**
-     * @var \Nwidart\Modules\Module
-     */
-    protected $instance;
+    protected $package = '';
 
     /**
      * The routers to be automatically mapped.
@@ -43,10 +27,6 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (app()->environment(static::$localEnvironments)) {
-            $this->registerEloquentFactoriesFrom($this->getModulePath() . '/database/factories');
-        }
-
         $this->registerConfiguration();
         $this->bindRepositories();
         $this->registerCommands();
@@ -57,8 +37,7 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->bootResources();
-        $this->registerPublishableResources();
+        $this->loadPublishableResources();
         $this->mapMorphTypes();
         $this->bootMiddleware(app(Kernel::class), app('router'));
         $this->mapPredefinedRoutes();
@@ -67,42 +46,21 @@ abstract class ModuleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register an additional directory of factories.
-     *
-     * @param string $path
-     */
-    protected function registerEloquentFactoriesFrom($path)
-    {
-        $this->app->make(Factory::class)->load($path);
-    }
-
-    /**
-     * Get the root path of the module.
-     *
-     * @return string
-     */
-    protected function getModulePath()
-    {
-        if (! $this->instance) {
-            $this->instance = app('modules')->findOrFail($this->module);
-        }
-
-        return $this->instance->getPath();
-    }
-
-    /**
      * Automatically register and merge all configuration files found in the package with the ones
      * published by the user.
      */
     protected function registerConfiguration()
     {
-        $configuration = $this->getModulePath() . '/config/config.php';
+        $configuration = __DIR__ . "/../../config/{$this->package}.php";
 
         if (! file_exists($configuration)) {
             return;
         }
 
-        $this->mergeConfigFrom($configuration, str_replace('/', '.', $this->module));
+        $this->mergeConfigFrom(
+            $configuration,
+            str_replace('/', '.', $this->package)
+        );
     }
 
     /**
@@ -122,22 +80,12 @@ abstract class ModuleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Prepare all module assets.
-     */
-    protected function bootResources()
-    {
-        $this->loadMigrationsFrom($this->getModulePath() . '/database/migrations');
-        $this->loadViewsFrom($this->getModulePath() . '/resources/views', $this->module);
-        $this->loadTranslationsFrom($this->getModulePath() . '/resources/lang', $this->module);
-    }
-
-    /**
      * Register all publishable module assets.
      */
-    protected function registerPublishableResources()
+    protected function loadPublishableResources()
     {
         $this->publishes([
-            $this->getModulePath() . '/config' => config_path($this->module)
+            __DIR__ . '/../../config' => config_path()
         ], 'config');
     }
 
