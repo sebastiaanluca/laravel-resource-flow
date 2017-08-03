@@ -2,9 +2,9 @@
 
 namespace SebastiaanLuca\Flow\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 
-class BaseEloquentModel extends Model
+class Model extends EloquentModel
 {
     /**
      * The attributes that aren't mass assignable.
