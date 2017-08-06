@@ -86,7 +86,7 @@ abstract class Provider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config' => config_path()
-        ], 'config');
+        ], 'resource-flow-config');
     }
 
     /**
