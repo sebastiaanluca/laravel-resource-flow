@@ -5,9 +5,12 @@ namespace SebastiaanLuca\Flow\Providers;
 class ResourceFlowServiceProvider extends Provider
 {
     /**
-     * The (preferably lowercase) module name to use when publishing packages or loading resources.
+     * The lowercase name of the package.
      *
-     * @var string
+     * @return string
      */
-    protected $package = 'flow';
+    protected function getPackageName() : string
+    {
+        return 'flow';
+    }
 }

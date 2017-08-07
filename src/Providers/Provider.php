@@ -9,13 +9,6 @@ use Illuminate\Support\ServiceProvider;
 abstract class Provider extends ServiceProvider
 {
     /**
-     * The (preferably lowercase) module name to use when publishing packages or loading resources.
-     *
-     * @var string
-     */
-    protected $package = '';
-
-    /**
      * The routers to be automatically mapped.
      *
      * @var array
@@ -51,7 +44,7 @@ abstract class Provider extends ServiceProvider
      */
     protected function registerConfiguration()
     {
-        $configuration = __DIR__ . "/../../config/{$this->package}.php";
+        $configuration = __DIR__ . "/../../config/{$this->getPackageName()}.php";
 
         if (! file_exists($configuration)) {
             return;
@@ -59,7 +52,7 @@ abstract class Provider extends ServiceProvider
 
         $this->mergeConfigFrom(
             $configuration,
-            str_replace('/', '.', $this->package)
+            str_replace('/', '.', $this->getPackageName())
         );
     }
 
@@ -86,7 +79,7 @@ abstract class Provider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config' => config_path()
-        ], 'resource-flow-config');
+        ], $this->getPackageName());
     }
 
     /**
@@ -133,4 +126,11 @@ abstract class Provider extends ServiceProvider
     {
         //
     }
+
+    /**
+     * The lowercase name of the package.
+     *
+     * @return string
+     */
+    abstract protected function getPackageName() : string;
 }

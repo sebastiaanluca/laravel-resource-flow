@@ -3,13 +3,18 @@
 namespace SebastiaanLuca\Flow\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
+use Nwidart\Modules\Module;
+use SebastiaanLuca\Flow\Exceptions\ModuleException;
+use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
 
 class ModuleProvider extends Provider
 {
+    use ProvidesClassInfo;
+
     /**
      * @var \Nwidart\Modules\Module
      */
-    protected $instance;
+    protected $module;
 
     /**
      * Register the application services.
@@ -41,7 +46,7 @@ class ModuleProvider extends Provider
             return;
         }
 
-        $this->app->make(Factory::class)->load($this->getModulePath() . '/database/factories');
+        $this->app->make(Factory::class)->load($this->getModule()->getPath() . '/database/factories');
     }
 
     /**
@@ -49,23 +54,48 @@ class ModuleProvider extends Provider
      */
     protected function bootResources()
     {
-        $this->loadMigrationsFrom($this->getModulePath() . '/database/migrations');
-        $this->loadViewsFrom($this->getModulePath() . '/resources/views', $this->package);
-        $this->loadTranslationsFrom($this->getModulePath() . '/resources/lang', $this->package);
-        $this->loadTranslationsFrom($this->getModulePath() . '/resources/translations', $this->package);
+        $this->loadMigrationsFrom($this->getModule()->getPath() . '/database/migrations');
+        $this->loadTranslationsFrom($this->getModule()->getPath() . '/resources/lang', $this->getPackageName());
+        $this->loadTranslationsFrom($this->getModule()->getPath() . '/resources/translations', $this->getPackageName());
+        $this->loadViewsFrom($this->getModule()->getPath() . '/resources/views', $this->getPackageName());
     }
 
     /**
-     * Get the root path of the module.
+     * The lowercase name of the package.
      *
      * @return string
+     * @throws \SebastiaanLuca\Flow\Exceptions\ModuleException
      */
-    protected function getModulePath()
+    protected function getPackageName() : string
     {
-        if (! $this->instance) {
-            $this->instance = app('modules')->findOrFail($this->package);
+        $configuration = $this->getClassDirectory() . '/../../module.json';
+
+        if (! file_exists($configuration)) {
+            throw ModuleException::unableToResolveModuleName();
         }
 
-        return $this->instance->getPath();
+        $name = take($configuration)
+            ->pipe('file_get_contents')
+            ->pipe('json_decode')
+            ->pipe('object_get', '$$', 'alias')
+            ->get();
+
+        if (is_null($name)) {
+            throw ModuleException::unableToResolveModuleName();
+        }
+
+        return $name;
+    }
+
+    /**
+     * @return \Nwidart\Modules\Module
+     */
+    protected function getModule() : Module
+    {
+        if (! $this->module) {
+            $this->module = app('modules')->findOrFail($this->getPackageName());
+        }
+
+        return $this->module;
     }
 }

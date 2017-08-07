@@ -26,7 +26,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "laravel/framework": "^5.4"
+        "laravel/framework": "^5.4",
+        "sebastiaanluca/laravel-helpers": "^1.0"
     },
     "require-dev": {
         "kint-php/kint": "^2.1",
