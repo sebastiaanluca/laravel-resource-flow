@@ -1,6 +1,6 @@
 <?php
 
-namespace SebastiaanLuca\Flow\Http;
+namespace SebastiaanLuca\Flow\Http\RequestHandlers;
 
 use Illuminate\Routing\Controller;
 
