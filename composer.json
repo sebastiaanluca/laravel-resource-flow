@@ -25,14 +25,14 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "laravel/framework": "^5.4",
+        "php": ">=7.1",
+        "laravel/framework": "^5.5",
         "sebastiaanluca/laravel-helpers": "^1.0"
     },
     "require-dev": {
         "kint-php/kint": "^2.1",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6.2"
+        "phpunit/phpunit": "^6.3"
     },
     "autoload": {
         "psr-4": {
@@ -61,5 +61,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
