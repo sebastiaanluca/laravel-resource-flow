@@ -2,7 +2,9 @@
 
 namespace SebastiaanLuca\Flow\Http;
 
-class RequestHandler
+use Illuminate\Routing\Controller;
+
+class RequestHandler extends Controller
 {
     /**
      * Executed when the object itself is called as a method.
@@ -13,6 +15,7 @@ class RequestHandler
      */
     public function __invoke()
     {
-        return call_user_func_array([$this, 'handle'], func_get_args());
+        // Use app to make the call so method dependency injection can be used when desired
+        return app()->call([$this, 'handle'], func_get_args());
     }
 }
