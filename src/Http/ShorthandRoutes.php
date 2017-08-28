@@ -2,33 +2,43 @@
 
 namespace SebastiaanLuca\Flow\Http;
 
+use BadMethodCallException;
+use Illuminate\Routing\Route;
+use Illuminate\Routing\Router;
+use Illuminate\Routing\ViewController;
+
 trait ShorthandRoutes
 {
     /**
-     * Register a new named GET route using shorthand notation.
+     * @param string $method
+     * @param array|null $arguments
      *
-     * @param string $uri
-     * @param string $name
-     * @param string $handler The controller action or handler that will process the request.
-     *
-     * @return \Illuminate\Routing\Route
+     * @return mixed
+     * @throws \BadMethodCallException
      */
-    protected function get(string $uri, string $name, string $handler)
+    public function __call(string $method, $arguments)
     {
-        return $this->router->get($uri, ['as' => $name, 'uses' => $handler]);
+        if (! in_array(strtoupper($method), Router::$verbs)) {
+            throw new BadMethodCallException;
+        }
+
+        [$uri, $name, $handler] = $arguments;
+
+        return $this->router->{$method}($uri, ['as' => $name, 'uses' => $handler]);
     }
 
     /**
-     * Register a new named POST route using shorthand notation.
-     *
      * @param string $uri
      * @param string $name
-     * @param string $handler The controller action or handler that will process the request.
+     * @param string $view
+     * @param array $data
      *
      * @return \Illuminate\Routing\Route
      */
-    protected function post(string $uri, string $name, string $handler)
+    protected function view(string $uri, string $name, string $view, array $data = []) : Route
     {
-        return $this->router->post($uri, ['as' => $name, 'uses' => $handler]);
+        return $this->router->match(['GET', 'HEAD'], $uri, ['as' => $name, 'uses' => ViewController::class])
+            ->defaults('view', $view)
+            ->defaults('data', $data);
     }
 }
