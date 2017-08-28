@@ -5,7 +5,6 @@ namespace SebastiaanLuca\Flow\Http;
 use BadMethodCallException;
 use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
-use Illuminate\Routing\ViewController;
 
 trait ShorthandRoutes
 {
@@ -37,8 +36,6 @@ trait ShorthandRoutes
      */
     protected function view(string $uri, string $name, string $view, array $data = []) : Route
     {
-        return $this->router->match(['GET', 'HEAD'], $uri, ['as' => $name, 'uses' => ViewController::class])
-            ->defaults('view', $view)
-            ->defaults('data', $data);
+        return $this->router->view($uri, $view, $data)->name($name);
     }
 }
