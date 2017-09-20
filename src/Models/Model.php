@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 class Model extends EloquentModel
 {
+    use BooleanDates;
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -22,8 +24,6 @@ class Model extends EloquentModel
      * @param array $attributes
      *
      * @return $this
-     *
-     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function fillIfMissing(array $attributes)
     {
