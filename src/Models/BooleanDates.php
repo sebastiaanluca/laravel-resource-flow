@@ -19,12 +19,12 @@ trait BooleanDates
     /**
      * Set a given attribute on the model.
      *
-     * @param  string $key
-     * @param  mixed $value
+     * @param string $key
+     * @param mixed $value
      *
      * @return $this
      */
-    public function setAttribute(string $key, $value)
+    public function setAttribute($key, $value)
     {
         if ($this->hasBooleanDate($key)) {
             $this->attributes[$this->getBooleanDateField($key)] = $this->getBooleanDateValue($value);
