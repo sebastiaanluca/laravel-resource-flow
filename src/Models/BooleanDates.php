@@ -17,6 +17,26 @@ trait BooleanDates
     protected $booleanDates = [];
 
     /**
+     * Get an attribute from the model.
+     *
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function getAttribute($key)
+    {
+        if (! $key) {
+            return;
+        }
+
+        if ($this->hasBooleanDate($key)) {
+            return ! is_null($this->attributes[$this->getBooleanDateField($key)]);
+        }
+
+        return parent::getAttribute($key);
+    }
+
+    /**
      * Set a given attribute on the model.
      *
      * @param string $key
