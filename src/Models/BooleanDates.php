@@ -85,6 +85,10 @@ trait BooleanDates
      */
     public function currentBooleanDateFieldValueIsNotYetSet(string $key) : bool
     {
+        if (! array_key_exists($this->getBooleanDateField($key), $this->attributes)) {
+            return true;
+        }
+
         return is_null($this->attributes[$this->getBooleanDateField($key)]);
     }
 
