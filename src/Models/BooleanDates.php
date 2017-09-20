@@ -47,7 +47,7 @@ trait BooleanDates
     public function setAttribute($key, $value)
     {
         if ($this->hasBooleanDate($key)) {
-            $this->attributes[$this->getBooleanDateField($key)] = $this->getBooleanDateValue($value);
+            $this->setBooleanDate($key, $value);
 
             return $this;
         }
@@ -66,11 +66,34 @@ trait BooleanDates
     }
 
     /**
-     * @param $key
+     * @param string $key
+     * @param mixed $value
+     */
+    public function setBooleanDate(string $key, $value)
+    {
+        // Only update the timestamp if the value is true and if it's not yet set
+        // or if the value is false and we need to unset the field.
+        if ($value && $this->currentBooleanDateFieldValueIsNotYetSet($key) || ! $value) {
+            $this->attributes[$this->getBooleanDateField($key)] = $this->getNewBooleanDateValue($value);
+        }
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function currentBooleanDateFieldValueIsNotYetSet(string $key) : bool
+    {
+        return is_null($this->attributes[$this->getBooleanDateField($key)]);
+    }
+
+    /**
+     * @param string $key
      *
      * @return string
      */
-    public function getBooleanDateField($key) : string
+    public function getBooleanDateField(string $key) : string
     {
         return $this->booleanDates[$key];
     }
@@ -80,7 +103,7 @@ trait BooleanDates
      *
      * @return string|null
      */
-    public function getBooleanDateValue($value) : ?string
+    public function getNewBooleanDateValue($value) : ?string
     {
         return $value ? $this->fromDateTime(Carbon::now()) : null;
     }
