@@ -17,7 +17,6 @@ __Quickly scaffold access to a resource.__
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
     - [Laravel 5.5](#laravel-55)
-    - [Laravel 5.4](#laravel-54)
 - [How to use](#how-to-use)
 - [License](#license)
 - [Change log](#change-log)
