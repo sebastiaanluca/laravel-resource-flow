@@ -17,6 +17,20 @@ trait BooleanDates
     protected $booleanDates = [];
 
     /**
+     * Convert the model's attributes to an array.
+     *
+     * @return array
+     */
+    public function attributesToArray()
+    {
+        $attributes = parent::attributesToArray();
+
+        $attributes = $this->addBooleanDateAttributesToArray($attributes);
+
+        return $attributes;
+    }
+
+    /**
      * Get an attribute from the model.
      *
      * @param string $key
@@ -56,13 +70,29 @@ trait BooleanDates
     }
 
     /**
+     * @return array
+     */
+    public function getBooleanDates() : array
+    {
+        return $this->booleanDates;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBooleanDateAttributes() : array
+    {
+        return array_intersect_key($this->attributes, array_flip($this->getBooleanDates()));
+    }
+
+    /**
      * @param string $key
      *
      * @return bool
      */
     public function hasBooleanDate(string $key) : bool
     {
-        return in_array($key, array_keys($this->booleanDates));
+        return in_array($key, array_keys($this->getBooleanDates()));
     }
 
     /**
@@ -110,5 +140,23 @@ trait BooleanDates
     public function getNewBooleanDateValue($value) : ?string
     {
         return $value ? $this->fromDateTime(Carbon::now()) : null;
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function addBooleanDateAttributesToArray(array $attributes) : array
+    {
+        foreach ($this->getBooleanDates() as $booleanField => $date) {
+            if (! array_key_exists($date, $attributes)) {
+                continue;
+            }
+
+            $attributes[$booleanField] = ! is_null($date);
+        }
+
+        return $attributes;
     }
 }
