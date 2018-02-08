@@ -5,12 +5,9 @@ namespace SebastiaanLuca\Flow\Providers;
 use Illuminate\Database\Eloquent\Factory;
 use Nwidart\Modules\Module;
 use SebastiaanLuca\Flow\Exceptions\ModuleException;
-use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
 
 class ModuleProvider extends Provider
 {
-    use ProvidesClassInfo;
-
     /**
      * @var \Nwidart\Modules\Module
      */

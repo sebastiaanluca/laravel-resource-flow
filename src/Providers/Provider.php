@@ -5,9 +5,12 @@ namespace SebastiaanLuca\Flow\Providers;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
 
 abstract class Provider extends ServiceProvider
 {
+    use ProvidesClassInfo;
+
     /**
      * The routers to be automatically mapped.
      *
@@ -44,7 +47,7 @@ abstract class Provider extends ServiceProvider
      */
     protected function registerConfiguration()
     {
-        $configuration = __DIR__ . "/../../config/{$this->getPackageName()}.php";
+        $configuration = $this->getClassDirectory() . "/../../config/{$this->getPackageName()}.php";
 
         if (! file_exists($configuration)) {
             return;
@@ -78,7 +81,7 @@ abstract class Provider extends ServiceProvider
     protected function loadPublishableResources()
     {
         $this->publishes([
-            __DIR__ . '/../../config' => config_path()
+            $this->getClassDirectory() . '/../../config' => config_path()
         ], $this->getPackageName());
     }
 
