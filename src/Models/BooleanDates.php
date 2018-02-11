@@ -101,7 +101,7 @@ trait BooleanDates
      * @param string $key
      * @param mixed $value
      */
-    public function setBooleanDate(string $key, $value)
+    public function setBooleanDate(string $key, $value) : void
     {
         // Only update the timestamp if the value is true and if it's not yet set
         // or if the value is false and we need to unset the field.
