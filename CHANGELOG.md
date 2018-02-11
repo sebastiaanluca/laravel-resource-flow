@@ -16,6 +16,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added a test suite and tests
 - Updated documents
 - Added boolean date parsing in base model
+- Load JSON translations
 
 ### Fixed
 
