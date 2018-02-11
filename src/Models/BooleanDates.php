@@ -42,7 +42,7 @@ trait BooleanDates
     public function getAttribute($key)
     {
         if (! $key) {
-            return;
+            return null;
         }
 
         if ($this->hasBooleanDate($key)) {
