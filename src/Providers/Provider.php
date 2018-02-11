@@ -93,9 +93,10 @@ abstract class Provider extends ServiceProvider
      */
     protected function loadPublishableResources()
     {
-        $this->publishes([
-            $this->getClassDirectory() . '/../../config' => config_path()
-        ], $this->getPackageName());
+        $this->publishes(
+            [$this->getClassDirectory() . '/../../config' => config_path()],
+            $this->getPackageName()
+        );
     }
 
     /**
