@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Flow\Http\Responses;
 
 use Illuminate\Contracts\Support\Responsable;

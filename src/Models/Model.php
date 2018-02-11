@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Flow\Models;
 
 use Illuminate\Database\Eloquent\Model as EloquentModel;

@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Flow\Providers;
 
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
 
