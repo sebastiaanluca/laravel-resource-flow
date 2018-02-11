@@ -18,6 +18,9 @@ class RequestHandler extends Controller
     public function __invoke()
     {
         // Use app to make the call so method dependency injection can be used when desired
-        return app()->call([$this, 'handle'], func_get_args());
+        return app()->call(
+            [$this, 'handle'],
+            func_get_args()
+        );
     }
 }
