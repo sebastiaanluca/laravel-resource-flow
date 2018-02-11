@@ -28,6 +28,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Removed service provider `registerListeners` method
 - Removed empty `mapRoutes` method
+- Removed empty `registerCommands` method
 
 ### Fixed
 

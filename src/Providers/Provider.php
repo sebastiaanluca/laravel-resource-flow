@@ -47,7 +47,6 @@ abstract class Provider extends ServiceProvider
         $this->aliasClasses();
         $this->registerConfiguration();
         $this->bindRepositories();
-        $this->registerCommands();
     }
 
     /**
@@ -95,14 +94,6 @@ abstract class Provider extends ServiceProvider
      * Bind concrete repositories to their interfaces.
      */
     protected function bindRepositories()
-    {
-        //
-    }
-
-    /**
-     * Register artisan commands.
-     */
-    protected function registerCommands()
     {
         //
     }
