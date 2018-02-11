@@ -46,7 +46,6 @@ abstract class Provider extends ServiceProvider
     {
         $this->aliasClasses();
         $this->registerConfiguration();
-        $this->bindRepositories();
     }
 
     /**
@@ -88,14 +87,6 @@ abstract class Provider extends ServiceProvider
             $configuration,
             str_replace('/', '.', $this->getPackageName())
         );
-    }
-
-    /**
-     * Bind concrete repositories to their interfaces.
-     */
-    protected function bindRepositories()
-    {
-        //
     }
 
     /**
