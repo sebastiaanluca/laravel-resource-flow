@@ -54,6 +54,7 @@ abstract class Provider extends ServiceProvider
     public function boot()
     {
         $this->loadPublishableResources();
+        $this->mapMorphTypes();
         $this->bootMiddleware(app(Kernel::class), app('router'));
         $this->mapRoutes();
     }
@@ -97,6 +98,14 @@ abstract class Provider extends ServiceProvider
             [$this->getClassDirectory() . '/../../config' => config_path()],
             $this->getPackageName()
         );
+    }
+
+    /**
+     * Map polymorphic models to their alias.
+     */
+    protected function mapMorphTypes() : void
+    {
+        Relation::morphMap($this->morphMap);
     }
 
     /**

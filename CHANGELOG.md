@@ -19,6 +19,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Load JSON translations
 - Add Laravel 5.6 service provider bindings and singletons properties
 - Alias all predefined class aliases
+- Map polymorphic models to their alias
 
 ### Changed
 
