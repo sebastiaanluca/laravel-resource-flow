@@ -54,7 +54,6 @@ abstract class Provider extends ServiceProvider
     public function boot()
     {
         $this->loadPublishableResources();
-        $this->mapMorphTypes();
         $this->bootMiddleware(app(Kernel::class), app('router'));
         $this->mapRoutes();
     }
@@ -97,14 +96,6 @@ abstract class Provider extends ServiceProvider
         $this->publishes([
             $this->getClassDirectory() . '/../../config' => config_path()
         ], $this->getPackageName());
-    }
-
-    /**
-     * Map class morph types.
-     */
-    protected function mapMorphTypes()
-    {
-        //
     }
 
     /**
