@@ -82,10 +82,16 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Alias all predefined classes.
+     *
+     * Classes without an alias are stripped of their namespace.
      */
     protected function aliasClasses() : void
     {
         foreach ($this->aliases as $alias => $class) {
+            if (! is_string($alias)) {
+                $alias = class_basename($class);
+            }
+
             if (! class_exists($alias)) {
                 class_alias($class, $alias);
             }
