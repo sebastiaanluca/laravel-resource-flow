@@ -17,6 +17,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Updated documents
 - Added boolean date parsing in base model
 - Load JSON translations
+### Changed
+
+- Require Laravel 5.6 or higher
 
 ### Fixed
 
