@@ -16,7 +16,6 @@ __Quickly scaffold access to a resource.__
 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-    - [Laravel 5.5](#laravel-55)
 - [How to use](#how-to-use)
 - [License](#license)
 - [Change log](#change-log)
@@ -29,34 +28,14 @@ __Quickly scaffold access to a resource.__
 ## Requirements
 
 - PHP 7.1 or higher
-- Laravel 5.4 or higher
+- Laravel 5.6 or higher
 
 ## How to install
 
-### Laravel 5.5
-
-From Laravel 5.5 and onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
+Just add the package to your project using composer and you're good to go!
 
 ```bash
 composer require sebastiaanluca/laravel-resource-flow
-```
-
-### Laravel 5.4
-
-Install the package through Composer by using the following command:
-
-```bash
-composer require sebastiaanluca/laravel-resource-flow
-```
-
-Add the service provider to the `providers` array in your `config/app.php` file:
-
-```php
-'providers' => [
-
-    SebastiaanLuca\Flow\Providers\ResourceFlowServiceProvider::class,
-
-]
 ```
 
 ## How to use
