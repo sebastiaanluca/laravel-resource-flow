@@ -26,6 +26,13 @@ abstract class Provider extends ServiceProvider
     public $singletons = [];
 
     /**
+     * The classes to alias to another namespace or name.
+     *
+     * @var array
+     */
+    protected $aliases = [];
+
+    /**
      * The routers to be automatically mapped.
      *
      * @var array
@@ -37,6 +44,7 @@ abstract class Provider extends ServiceProvider
      */
     public function register()
     {
+        $this->aliasClasses();
         $this->registerConfiguration();
         $this->bindRepositories();
         $this->registerCommands();
@@ -53,6 +61,18 @@ abstract class Provider extends ServiceProvider
         $this->mapPredefinedRoutes();
         $this->mapRoutes();
         $this->registerListeners();
+    }
+
+    /**
+     * Alias all predefined classes.
+     */
+    protected function aliasClasses() : void
+    {
+        foreach ($this->aliases as $alias => $class) {
+            if (! class_exists($alias)) {
+                class_alias($class, $alias);
+            }
+        }
     }
 
     /**

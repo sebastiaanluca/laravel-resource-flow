@@ -18,6 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added boolean date parsing in base model
 - Load JSON translations
 - Add Laravel 5.6 service provider bindings and singletons properties
+- Alias all predefined class aliases
 
 ### Changed
 
