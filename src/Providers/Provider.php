@@ -60,7 +60,6 @@ abstract class Provider extends ServiceProvider
         $this->bootMiddleware(app(Kernel::class), app('router'));
         $this->mapPredefinedRoutes();
         $this->mapRoutes();
-        $this->registerListeners();
     }
 
     /**
@@ -152,14 +151,6 @@ abstract class Provider extends ServiceProvider
      * Map out all module routes.
      */
     protected function mapRoutes()
-    {
-        //
-    }
-
-    /**
-     * Listen to events.
-     */
-    protected function registerListeners()
     {
         //
     }

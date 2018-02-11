@@ -24,6 +24,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Require Laravel 5.6 or higher
 
+### Removed
+
+- Removed service provider `registerListeners` method
+
 ### Fixed
 
 - Correctly resolve config file
