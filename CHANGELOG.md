@@ -32,6 +32,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Removed empty `registerCommands` method
 - Removed empty `bindRepositories` method
 - Removed empty `mapMorphTypes` method
+- Removed empty `bootMiddleware` method
 
 ### Fixed
 

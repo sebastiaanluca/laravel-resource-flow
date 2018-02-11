@@ -55,7 +55,6 @@ abstract class Provider extends ServiceProvider
     {
         $this->loadPublishableResources();
         $this->mapMorphTypes();
-        $this->bootMiddleware(app(Kernel::class), app('router'));
         $this->mapRoutes();
     }
 
@@ -106,17 +105,6 @@ abstract class Provider extends ServiceProvider
     protected function mapMorphTypes() : void
     {
         Relation::morphMap($this->morphMap);
-    }
-
-    /**
-     * Register package middleware.
-     *
-     * @param Kernel $kernel
-     * @param \Illuminate\Routing\Router $router
-     */
-    protected function bootMiddleware(Kernel $kernel, Router $router)
-    {
-        //
     }
 
     /**
