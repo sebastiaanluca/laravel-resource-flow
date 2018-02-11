@@ -58,7 +58,6 @@ abstract class Provider extends ServiceProvider
         $this->loadPublishableResources();
         $this->mapMorphTypes();
         $this->bootMiddleware(app(Kernel::class), app('router'));
-        $this->mapPredefinedRoutes();
         $this->mapRoutes();
     }
 
@@ -140,19 +139,11 @@ abstract class Provider extends ServiceProvider
     /**
      * Map out all predefined module routes.
      */
-    protected function mapPredefinedRoutes()
+    protected function mapRoutes()
     {
         foreach ($this->routers as $router) {
             $this->app->make($router);
         }
-    }
-
-    /**
-     * Map out all module routes.
-     */
-    protected function mapRoutes()
-    {
-        //
     }
 
     /**

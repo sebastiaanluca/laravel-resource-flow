@@ -27,6 +27,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Removed
 
 - Removed service provider `registerListeners` method
+- Removed empty `mapRoutes` method
 
 ### Fixed
 
