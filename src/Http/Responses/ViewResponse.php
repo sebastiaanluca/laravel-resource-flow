@@ -3,6 +3,7 @@
 namespace SebastiaanLuca\Flow\Http\Responses;
 
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 
 abstract class ViewResponse implements Responsable
 {
@@ -18,7 +19,7 @@ abstract class ViewResponse implements Responsable
      *
      * @return \Illuminate\Http\Response
      */
-    public function toResponse($request)
+    public function toResponse($request) : Response
     {
         return view($this->getView(), $this->viewData);
     }
