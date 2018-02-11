@@ -3,6 +3,7 @@
 namespace SebastiaanLuca\Flow\Providers;
 
 use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
@@ -33,6 +34,27 @@ abstract class Provider extends ServiceProvider
     protected $aliases = [];
 
     /**
+     * The polymorphic models to map to their alias.
+     *
+     * @var array
+     */
+    protected $morphMap = [];
+
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [];
+
+    /**
+     * The subscriber classes to register.
+     *
+     * @var array
+     */
+    protected $subscribe = [];
+
+    /**
      * The routers to be automatically mapped.
      *
      * @var array
@@ -42,7 +64,7 @@ abstract class Provider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register() : void
     {
         $this->aliasClasses();
         $this->registerConfiguration();
@@ -51,7 +73,7 @@ abstract class Provider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot() : void
     {
         $this->loadPublishableResources();
         $this->mapMorphTypes();
@@ -74,7 +96,7 @@ abstract class Provider extends ServiceProvider
      * Automatically register and merge all configuration files found in the package with the ones
      * published by the user.
      */
-    protected function registerConfiguration()
+    protected function registerConfiguration() : void
     {
         $configuration = $this->getClassDirectory() . "/../../config/{$this->getPackageName()}.php";
 
@@ -91,7 +113,7 @@ abstract class Provider extends ServiceProvider
     /**
      * Register all publishable module assets.
      */
-    protected function loadPublishableResources()
+    protected function loadPublishableResources() : void
     {
         $this->publishes(
             [$this->getClassDirectory() . '/../../config' => config_path()],
@@ -110,7 +132,7 @@ abstract class Provider extends ServiceProvider
     /**
      * Map out all predefined module routes.
      */
-    protected function mapRoutes()
+    protected function mapRoutes() : void
     {
         foreach ($this->routers as $router) {
             $this->app->make($router);

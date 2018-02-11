@@ -16,7 +16,7 @@ class ModuleProvider extends Provider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register() : void
     {
         $this->registerFactories();
 
@@ -26,7 +26,7 @@ class ModuleProvider extends Provider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot() : void
     {
         $this->bootResources();
 
@@ -37,19 +37,21 @@ class ModuleProvider extends Provider
      * Register directories containing Eloquent model factories if enabled in the current
      * environment.
      */
-    protected function registerFactories()
+    protected function registerFactories() : void
     {
         if (! app()->environment(config('flow.development_environments'))) {
             return;
         }
 
-        $this->app->make(Factory::class)->load($this->getModule()->getPath() . '/database/factories');
+        $this->app->make(Factory::class)->load(
+            $this->getModule()->getPath() . '/database/factories'
+        );
     }
 
     /**
      * Prepare all module assets.
      */
-    protected function bootResources()
+    protected function bootResources() : void
     {
         $this->loadMigrationsFrom($this->getModule()->getPath() . '/database/migrations');
         $this->loadTranslationsFrom($this->getModule()->getPath() . '/resources/lang', $this->getPackageName());
@@ -63,7 +65,6 @@ class ModuleProvider extends Provider
      * The lowercase name of the package.
      *
      * @return string
-     * @throws \SebastiaanLuca\Flow\Exceptions\ModuleException
      */
     protected function getPackageName() : string
     {
