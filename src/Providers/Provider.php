@@ -12,6 +12,20 @@ abstract class Provider extends ServiceProvider
     use ProvidesClassInfo;
 
     /**
+     * The class bindings to register.
+     *
+     * @var array
+     */
+    public $bindings = [];
+
+    /**
+     * The class singletons to register.
+     *
+     * @var array
+     */
+    public $singletons = [];
+
+    /**
      * The routers to be automatically mapped.
      *
      * @var array
