@@ -20,6 +20,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Add Laravel 5.6 service provider bindings and singletons properties
 - Alias all predefined class aliases
 - Map polymorphic models to their alias
+- Auto-register event listeners and subscribers
 
 ### Changed
 
@@ -27,7 +28,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Removed
 
-- Removed service provider `registerListeners` method
 - Removed empty `mapRoutes` method
 - Removed empty `registerCommands` method
 - Removed empty `bindRepositories` method

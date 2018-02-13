@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SebastiaanLuca\Flow\Providers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
 
@@ -60,6 +61,7 @@ abstract class Provider extends ServiceProvider
     public function register() : void
     {
         $this->registerConfiguration();
+        $this->registerListeners();
     }
 
     /**
@@ -88,6 +90,21 @@ abstract class Provider extends ServiceProvider
             $configuration,
             str_replace('/', '.', $this->getPackageName())
         );
+    }
+
+    /**
+     * Register predefined listeners event listeners.
+     */
+    protected function registerListeners()
+    {
+        foreach ($this->listen as $event => $listeners) {
+            foreach ($listeners as $listener) {
+                Event::listen($event, $listener);
+            }
+        }
+        foreach ($this->subscribe as $subscriber) {
+            Event::subscribe($subscriber);
+        }
     }
 
     /**
