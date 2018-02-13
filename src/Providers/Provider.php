@@ -27,13 +27,6 @@ abstract class Provider extends ServiceProvider
     public $singletons = [];
 
     /**
-     * The classes to alias to another namespace or name.
-     *
-     * @var array
-     */
-    protected $aliases = [];
-
-    /**
      * The polymorphic models to map to their alias.
      *
      * @var array
@@ -66,7 +59,6 @@ abstract class Provider extends ServiceProvider
      */
     public function register() : void
     {
-        $this->aliasClasses();
         $this->registerConfiguration();
     }
 
@@ -78,24 +70,6 @@ abstract class Provider extends ServiceProvider
         $this->loadPublishableResources();
         $this->mapMorphTypes();
         $this->mapRoutes();
-    }
-
-    /**
-     * Alias all predefined classes.
-     *
-     * Classes without an alias are stripped of their namespace.
-     */
-    protected function aliasClasses() : void
-    {
-        foreach ($this->aliases as $alias => $class) {
-            if (! is_string($alias)) {
-                $alias = class_basename($class);
-            }
-
-            if (! class_exists($alias)) {
-                class_alias($class, $alias);
-            }
-        }
     }
 
     /**
