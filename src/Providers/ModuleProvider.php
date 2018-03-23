@@ -76,11 +76,9 @@ class ModuleProvider extends Provider
             throw ModuleException::unableToResolveModuleName();
         }
 
-        $name = take($configuration)
-            ->pipe('file_get_contents')
-            ->pipe('json_decode')
-            ->pipe('object_get', '$$', 'alias')
-            ->get();
+        $name = file_get_contents($configuration);
+        $name = json_decode($name);
+        $name = object_get($name, 'alias');
 
         if (is_null($name)) {
             throw ModuleException::unableToResolveModuleName();
