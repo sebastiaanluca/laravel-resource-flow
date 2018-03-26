@@ -16,6 +16,11 @@ class ModuleProvider extends Provider
     protected $module;
 
     /**
+     * @var string
+     */
+    private $packageName;
+
+    /**
      * Register the application services.
      */
     public function register() : void
@@ -70,6 +75,10 @@ class ModuleProvider extends Provider
      */
     protected function getPackageName() : string
     {
+        if ($this->packageName) {
+            return $this->packageName;
+        }
+
         $configuration = $this->getClassDirectory() . '/../../module.json';
 
         if (! file_exists($configuration)) {
@@ -84,7 +93,7 @@ class ModuleProvider extends Provider
             throw ModuleException::unableToResolveModuleName();
         }
 
-        return $name;
+        return $this->packageName = $name;
     }
 
     /**
