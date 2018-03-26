@@ -62,9 +62,7 @@ class ModuleProvider extends Provider
     {
         $this->loadMigrationsFrom($this->getModule()->getPath() . '/database/migrations');
         $this->loadTranslationsFrom($this->getModule()->getPath() . '/resources/lang', $this->getPackageName());
-        $this->loadTranslationsFrom($this->getModule()->getPath() . '/resources/translations', $this->getPackageName());
         $this->loadJsonTranslationsFrom($this->getModule()->getPath() . '/resources/lang');
-        $this->loadJsonTranslationsFrom($this->getModule()->getPath() . '/resources/translations');
         $this->loadViewsFrom($this->getModule()->getPath() . '/resources/views', $this->getPackageName());
     }
 
