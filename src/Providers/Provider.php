@@ -98,7 +98,7 @@ abstract class Provider extends ServiceProvider
     /**
      * Register predefined listeners event listeners.
      */
-    protected function registerListeners()
+    protected function registerListeners() : void
     {
         foreach ($this->listen as $event => $listeners) {
             foreach ($listeners as $listener) {

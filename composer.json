@@ -32,7 +32,6 @@
     },
     "require-dev": {
         "kint-php/kint": "^2.2",
-        "nwidart/laravel-modules": "^3.3",
         "orchestra/testbench": "^3.6",
         "phpunit/phpunit": "^7.2"
     },
@@ -45,9 +44,6 @@
         "psr-4": {
             "SebastiaanLuca\\Flow\\Tests\\": "tests"
         }
-    },
-    "suggest": {
-        "nwidart/laravel-modules": "Organize your domain logic into logical modules."
     },
     "config": {
         "optimize-autoloader": true,
