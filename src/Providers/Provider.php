@@ -7,12 +7,10 @@ namespace SebastiaanLuca\Flow\Providers;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
+use ReflectionClass;
 
 abstract class Provider extends ServiceProvider
 {
-    use ProvidesClassInfo;
-
     /**
      * The class bindings to register.
      *
@@ -54,6 +52,11 @@ abstract class Provider extends ServiceProvider
      * @var array
      */
     protected $routers = [];
+
+    /**
+     * @var string
+     */
+    private $classDirectory;
 
     /**
      * Register the application services.
@@ -142,4 +145,25 @@ abstract class Provider extends ServiceProvider
      * @return string
      */
     abstract protected function getPackageName() : string;
+
+    /**
+     * Get the directory of the current class.
+     *
+     * Uses reflection to get the directory of the child class instead of the parent if applicable.
+     *
+     * @return string
+     */
+    private function getClassDirectory() : string
+    {
+        // Some primitive caching
+        if ($this->classDirectory) {
+            return $this->classDirectory;
+        }
+
+        $reflection = new ReflectionClass(get_class($this));
+
+        $this->classDirectory = dirname($reflection->getFileName());
+
+        return $this->classDirectory;
+    }
 }
