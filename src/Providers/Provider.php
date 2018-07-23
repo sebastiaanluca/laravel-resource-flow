@@ -153,7 +153,7 @@ abstract class Provider extends ServiceProvider
      *
      * @return string
      */
-    private function getClassDirectory() : string
+    protected function getClassDirectory() : string
     {
         // Some primitive caching
         if ($this->classDirectory) {
