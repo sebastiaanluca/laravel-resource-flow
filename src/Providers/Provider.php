@@ -7,24 +7,9 @@ namespace SebastiaanLuca\Flow\Providers;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use ReflectionClass;
 
 abstract class Provider extends ServiceProvider
 {
-    /**
-     * The class bindings to register.
-     *
-     * @var array
-     */
-    public $bindings = [];
-
-    /**
-     * The class singletons to register.
-     *
-     * @var array
-     */
-    public $singletons = [];
-
     /**
      * The polymorphic models to map to their alias.
      *
@@ -54,16 +39,10 @@ abstract class Provider extends ServiceProvider
     protected $routers = [];
 
     /**
-     * @var string
-     */
-    private $classDirectory;
-
-    /**
      * Register the application services.
      */
     public function register() : void
     {
-        $this->registerConfiguration();
         $this->registerListeners();
     }
 
@@ -72,27 +51,8 @@ abstract class Provider extends ServiceProvider
      */
     public function boot() : void
     {
-        $this->loadPublishableResources();
         $this->mapMorphTypes();
         $this->mapRoutes();
-    }
-
-    /**
-     * Automatically register and merge all configuration files found in the package with the ones
-     * published by the user.
-     */
-    protected function registerConfiguration() : void
-    {
-        $configuration = $this->getClassDirectory() . "/../../config/{$this->getPackageName()}.php";
-
-        if (! file_exists($configuration)) {
-            return;
-        }
-
-        $this->mergeConfigFrom(
-            $configuration,
-            str_replace('/', '.', $this->getPackageName())
-        );
     }
 
     /**
@@ -105,20 +65,10 @@ abstract class Provider extends ServiceProvider
                 Event::listen($event, $listener);
             }
         }
+
         foreach ($this->subscribe as $subscriber) {
             Event::subscribe($subscriber);
         }
-    }
-
-    /**
-     * Register all publishable module assets.
-     */
-    protected function loadPublishableResources() : void
-    {
-        $this->publishes(
-            [$this->getClassDirectory() . '/../../config' => config_path()],
-            $this->getPackageName()
-        );
     }
 
     /**
@@ -137,33 +87,5 @@ abstract class Provider extends ServiceProvider
         foreach ($this->routers as $router) {
             $this->app->make($router);
         }
-    }
-
-    /**
-     * The lowercase name of the package.
-     *
-     * @return string
-     */
-    abstract protected function getPackageName() : string;
-
-    /**
-     * Get the directory of the current class.
-     *
-     * Uses reflection to get the directory of the child class instead of the parent if applicable.
-     *
-     * @return string
-     */
-    protected function getClassDirectory() : string
-    {
-        // Some primitive caching
-        if ($this->classDirectory) {
-            return $this->classDirectory;
-        }
-
-        $reflection = new ReflectionClass(get_class($this));
-
-        $this->classDirectory = dirname($reflection->getFileName());
-
-        return $this->classDirectory;
     }
 }
