@@ -27,11 +27,11 @@ class Model extends EloquentModel
      *
      * @return $this
      */
-    public function fillIfMissing(array $attributes)
+    public function fillIfMissing(array $attributes) : self
     {
         $attributes = collect($attributes)
             ->reject(function ($attribute, $field) {
-                return in_array($field, $this->attributes);
+                return in_array($field, $this->attributes, true);
             })
             ->all();
 

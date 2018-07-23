@@ -23,7 +23,7 @@ trait BooleanDates
      *
      * @return array
      */
-    public function attributesToArray()
+    public function attributesToArray() : array
     {
         $attributes = parent::attributesToArray();
 
@@ -84,7 +84,10 @@ trait BooleanDates
      */
     public function getBooleanDateAttributes() : array
     {
-        return array_intersect_key($this->attributes, array_flip($this->getBooleanDates()));
+        return array_intersect_key(
+            $this->attributes,
+            array_flip($this->getBooleanDates())
+        );
     }
 
     /**
@@ -94,7 +97,7 @@ trait BooleanDates
      */
     public function hasBooleanDate(string $key) : bool
     {
-        return in_array($key, array_keys($this->getBooleanDates()));
+        return array_key_exists($key, $this->getBooleanDates());
     }
 
     /**
@@ -105,7 +108,7 @@ trait BooleanDates
     {
         // Only update the timestamp if the value is true and if it's not yet set
         // or if the value is false and we need to unset the field.
-        if ($value && $this->currentBooleanDateFieldValueIsNotYetSet($key) || ! $value) {
+        if (! $value || ($value && $this->currentBooleanDateFieldValueIsNotYetSet($key))) {
             $this->attributes[$this->getBooleanDateField($key)] = $this->getNewBooleanDateValue($value);
         }
     }

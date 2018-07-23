@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SebastiaanLuca\Flow\Http\Responses;
 
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 abstract class ViewResponse implements Responsable
@@ -38,7 +37,7 @@ abstract class ViewResponse implements Responsable
      *
      * @return $this
      */
-    public function addViewData($key, $value = null)
+    public function addViewData($key, $value = null) : self
     {
         $data = $key;
 
