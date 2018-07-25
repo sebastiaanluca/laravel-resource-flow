@@ -21,6 +21,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
+- Require PHP 7.2 or higher
 - Require Laravel 5.6 or higher
 
 ### Removed
