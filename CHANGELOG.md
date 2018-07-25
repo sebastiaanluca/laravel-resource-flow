@@ -18,6 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Alias all predefined class aliases
 - Map polymorphic models to their alias
 - Auto-register event listeners and subscribers
+- Added a call to a request handler's _before_ method
 
 ### Changed
 
