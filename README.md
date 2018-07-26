@@ -1,4 +1,4 @@
-# Laravel Resource Flow
+# An opinionated flow to quickly scaffold access to a resource or action
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
@@ -9,8 +9,6 @@
 [![View my other packages and projects][packages-link-badge]][link-packages]
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
-
-__An opinionated flow to quickly scaffold access to a resource or action.__
 
 ## Table of contents
 
