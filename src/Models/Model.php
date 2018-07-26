@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 class Model extends EloquentModel
 {
-    use BooleanDates;
-
     /**
      * The attributes that aren't mass assignable.
      *

@@ -72,7 +72,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
+My name is Sebastiaan and I'm a freelance back-end developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
@@ -94,6 +94,6 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-blog]: https://blog.sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
-[link-twitter-share]: https://twitter.com/intent/tweet?text=Quickly%20scaffold%20a%20resource.%20https%3A%2F%2Fgithub.com%2Fsebastiaanluca%2Flaravel-helpers%20via%20%40sebastiaanluca
+[link-twitter-share]: https://twitter.com/intent/tweet?text=Quickly%20scaffold%20access%20to%20a%20resource%20or%20action%20with%20Laravel%20Resource%20Flow.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-resource-flow
 [link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com
