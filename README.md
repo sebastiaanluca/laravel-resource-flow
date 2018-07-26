@@ -27,7 +27,7 @@ __Quickly scaffold access to a resource.__
 
 ## Requirements
 
-- PHP 7.1 or higher
+- PHP 7.2 or higher
 - Laravel 5.6 or higher
 
 ## How to install
@@ -40,17 +40,7 @@ composer require sebastiaanluca/laravel-resource-flow
 
 ## How to use
 
-### Scaffolding a resource
-
-### Individual use of classes
-
-#### Base Eloquent model
-
-#### Queueable job
-
-### Works great with modules
-
-See [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
+TODO
 
 ## License
 
