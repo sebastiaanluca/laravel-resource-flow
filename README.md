@@ -10,7 +10,7 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Quickly scaffold access to a resource.__
+__An opinionated flow to quickly scaffold access to a resource or action.__
 
 ## Table of contents
 
