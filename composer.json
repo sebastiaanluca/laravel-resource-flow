@@ -3,17 +3,19 @@
     "type": "library",
     "description": "Quickly scaffold access to a resource.",
     "keywords": [
-        "Laravel",
-        "resource",
-        "flow",
+        "controller",
         "eloquent",
+        "flow",
+        "handler",
+        "laravel",
+        "migration",
         "model",
         "module",
-        "migration",
-        "controller",
-        "validator",
+        "request",
+        "resource",
         "route",
-        "router"
+        "router",
+        "view"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-resource-flow",
     "license": "MIT",
@@ -26,13 +28,15 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "laravel/framework": "^5.4"
+        "ext-json": "*",
+        "laravel/framework": "^5.6",
+        "nesbot/carbon": "^1.22",
+        "php": "^7.2"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6",
-        "raveren/kint": "^1"
+        "kint-php/kint": "^2.2",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.2"
     },
     "autoload": {
         "psr-4": {
@@ -44,16 +48,17 @@
             "SebastiaanLuca\\Flow\\Tests\\": "tests"
         }
     },
-    "scripts": {
-        "test": "phpunit"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
-    },
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Flow\\Providers\\ResourceFlowServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
 }
