@@ -6,6 +6,17 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 0.2.1 (2018-07-26)
+
+### Changed
+
+- Clean up TestCase
+
+### Fixed
+
+- Remove deprecated nesbot/carbon requirement
+- Remove deprecated BooleanDates requirement
+
 ##  0.2.0 (2018-07-26)
 
 ### Added
