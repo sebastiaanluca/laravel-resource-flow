@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  0.2.0 (2018-07-26)
+
 ### Added
 
 - Added a base Eloquent model
