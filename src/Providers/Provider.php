@@ -43,7 +43,6 @@ abstract class Provider extends ServiceProvider
      */
     public function register() : void
     {
-        $this->registerListeners();
     }
 
     /**
@@ -51,6 +50,7 @@ abstract class Provider extends ServiceProvider
      */
     public function boot() : void
     {
+        $this->registerListeners();
         $this->mapMorphTypes();
         $this->mapRoutes();
     }

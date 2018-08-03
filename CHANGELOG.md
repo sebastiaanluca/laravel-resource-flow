@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Changed
+
+- Moved event listener registration to the service provider `boot` method
+
 ## 0.2.1 (2018-07-26)
 
 ### Changed
