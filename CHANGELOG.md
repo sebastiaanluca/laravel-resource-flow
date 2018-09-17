@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 0.4.0 (2018-09-17)
+
 ### Changed
 
 - Allow the request handler before method to return an early response
