@@ -23,7 +23,11 @@ class RequestHandler extends Controller
     public function __invoke()
     {
         if (method_exists($this, 'before')) {
-            app()->call([$this, 'before'], func_get_args());
+            $response = app()->call([$this, 'before'], func_get_args());
+        }
+
+        if (isset($response) && $response !== null) {
+            return $response;
         }
 
         // Use app to make the call so method dependency injection can be used when desired
