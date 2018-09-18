@@ -9,6 +9,8 @@ use Illuminate\Contracts\Bus\Dispatcher;
 trait InteractsWithRequests
 {
     /**
+     * Interact with the request.
+     *
      * @param \SebastiaanLuca\Flow\Http\Interactions\Interaction $interaction
      *
      * @return mixed

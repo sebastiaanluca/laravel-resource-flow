@@ -11,5 +11,5 @@ interface Interaction
      *
      * @return mixed
      */
-    public function interact();
+    public function handle();
 }
