@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Added
+
+- Added interactions
+
 ### Removed
 
 - Removed AuthorizesRequests from RequestHandler
