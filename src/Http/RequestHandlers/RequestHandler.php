@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace SebastiaanLuca\Flow\Http\RequestHandlers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
 
 class RequestHandler extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     /**
      * Executed when the object itself is called as a method.
      *

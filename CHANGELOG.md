@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Removed
+
+- Removed AuthorizesRequests from RequestHandler
+- Removed DispatchesJobs from RequestHandler
+- Removed ValidatesRequests from RequestHandler
+
 ## 0.4.0 (2018-09-17)
 
 ### Changed
