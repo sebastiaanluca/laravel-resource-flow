@@ -32,8 +32,8 @@ class InteractionException extends RuntimeException
     public static function failed($response) : self
     {
         return new static(
-            $response,
-            'The interaction failed.'
+            'The interaction failed.',
+            $response
         );
     }
 
