@@ -9,7 +9,7 @@ interface Interaction
     /**
      * Interact with the request.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle();
+    public function interact() : void;
 }

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace SebastiaanLuca\Flow\Http\Interactions;
 
-use Illuminate\Contracts\Bus\Dispatcher;
-
 trait InteractsWithRequests
 {
     /**
@@ -13,10 +11,10 @@ trait InteractsWithRequests
      *
      * @param \SebastiaanLuca\Flow\Http\Interactions\Interaction $interaction
      *
-     * @return mixed
+     * @return void
      */
-    protected function interact(Interaction $interaction)
+    protected function interact(Interaction $interaction) : void
     {
-        return app(Dispatcher::class)->dispatchNow($interaction);
+        app()->call([$interaction, 'interact']);
     }
 }

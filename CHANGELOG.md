@@ -10,6 +10,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Added enforcer
 - Added interaction
+- Added interaction exception to respond early
 
 ### Removed
 

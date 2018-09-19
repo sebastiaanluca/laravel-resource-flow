@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SebastiaanLuca\Flow\Http\RequestHandlers;
 
 use Illuminate\Routing\Controller;
+use SebastiaanLuca\Flow\Exceptions\InteractionException;
 
 class RequestHandler extends Controller
 {
@@ -17,15 +18,46 @@ class RequestHandler extends Controller
      */
     public function __invoke()
     {
+        try {
+            return $this->handleRequest(func_get_args());
+        } catch (InteractionException $exception) {
+            return $this->getResponseFromException($exception);
+        }
+    }
+
+    /**
+     * Handle the request.
+     *
+     * @param array ...$arguments
+     *
+     * @return mixed
+     */
+    private function handleRequest(...$arguments)
+    {
         if (method_exists($this, 'before')) {
-            $response = app()->call([$this, 'before'], func_get_args());
+            $response = app()->call([$this, 'before'], $arguments);
         }
 
         if (isset($response) && $response !== null) {
             return $response;
         }
 
-        // Use app to make the call so method dependency injection can be used when desired
-        return app()->call([$this, 'handle'], func_get_args());
+        return app()->call([$this, 'handle'], $arguments);
+    }
+
+    /**
+     * @param \SebastiaanLuca\Flow\Exceptions\InteractionException $exception
+     *
+     * @return mixed
+     */
+    private function getResponseFromException(InteractionException $exception)
+    {
+        $response = $exception->getResponse();
+
+        if (is_callable($response)) {
+            return $response();
+        }
+
+        return $response;
     }
 }
