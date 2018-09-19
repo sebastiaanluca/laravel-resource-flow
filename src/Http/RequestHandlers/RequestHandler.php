@@ -14,12 +14,14 @@ class RequestHandler extends Controller
      *
      * Pass the call on to a handle method for improved readability.
      *
+     * @param array ...$arguments
+     *
      * @return mixed
      */
-    public function __invoke()
+    public function __invoke(...$arguments)
     {
         try {
-            return $this->handleRequest(func_get_args());
+            return $this->handleRequest(...$arguments);
         } catch (InteractionException $exception) {
             return $this->getResponseFromException($exception);
         }
