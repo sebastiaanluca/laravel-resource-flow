@@ -6,7 +6,7 @@ namespace SebastiaanLuca\Flow\Exceptions;
 
 use RuntimeException;
 
-class InteractionException extends RuntimeException
+class InteractionFailed extends RuntimeException
 {
     /**
      * @var mixed
@@ -27,9 +27,9 @@ class InteractionException extends RuntimeException
     /**
      * @param mixed $response
      *
-     * @return \SebastiaanLuca\Flow\Exceptions\InteractionException
+     * @return \SebastiaanLuca\Flow\Exceptions\InteractionFailed
      */
-    public static function failed($response) : self
+    public static function withResponse($response) : self
     {
         return new static(
             'The interaction failed.',

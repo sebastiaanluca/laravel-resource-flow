@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SebastiaanLuca\Flow\Http\RequestHandlers;
 
 use Illuminate\Routing\Controller;
-use SebastiaanLuca\Flow\Exceptions\InteractionException;
+use SebastiaanLuca\Flow\Exceptions\InteractionFailed;
 
 class RequestHandler extends Controller
 {
@@ -22,7 +22,7 @@ class RequestHandler extends Controller
     {
         try {
             return $this->handleRequest(...$arguments);
-        } catch (InteractionException $exception) {
+        } catch (InteractionFailed $exception) {
             return $this->getResponseFromException($exception);
         }
     }
@@ -48,11 +48,11 @@ class RequestHandler extends Controller
     }
 
     /**
-     * @param \SebastiaanLuca\Flow\Exceptions\InteractionException $exception
+     * @param \SebastiaanLuca\Flow\Exceptions\InteractionFailed $exception
      *
      * @return mixed
      */
-    private function getResponseFromException(InteractionException $exception)
+    private function getResponseFromException(InteractionFailed $exception)
     {
         $response = $exception->getResponse();
 

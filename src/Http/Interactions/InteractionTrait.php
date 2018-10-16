@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SebastiaanLuca\Flow\Http\Interactions;
 
-use SebastiaanLuca\Flow\Exceptions\InteractionException;
+use SebastiaanLuca\Flow\Exceptions\InteractionFailed;
 
 trait InteractionTrait
 {
@@ -13,10 +13,10 @@ trait InteractionTrait
      *
      * @param mixed $response
      *
-     * @throws \SebastiaanLuca\Flow\Exceptions\InteractionException
+     * @throws \SebastiaanLuca\Flow\Exceptions\InteractionFailed
      */
     private function failedInteraction($response) : void
     {
-        throw InteractionException::failed($response);
+        throw InteractionFailed::withResponse($response);
     }
 }
