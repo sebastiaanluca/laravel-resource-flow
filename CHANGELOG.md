@@ -11,12 +11,14 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added enforcer
 - Added interaction
 - Added interaction exception to respond early
+- Added support for Laravel 5.8
 
 ### Removed
 
 - Removed AuthorizesRequests from RequestHandler
 - Removed DispatchesJobs from RequestHandler
 - Removed ValidatesRequests from RequestHandler
+- Removed support for Laravel 5.7 and lower
 
 ## 0.4.0 (2018-09-17)
 
