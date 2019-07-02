@@ -4,6 +4,7 @@
 [![Software license][license-badge]](LICENSE.md)
 [![Build status][travis-badge]][link-travis]
 [![Total downloads][downloads-badge]][link-packagist]
+[![Total stars][stars-badge]][link-github]
 
 [![Read my blog][blog-link-badge]][link-blog]
 [![View my other packages and projects][packages-link-badge]][link-packages]
@@ -74,24 +75,26 @@ My name is Sebastiaan and I'm a freelance back-end developer specializing in bui
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-resource-flow/version
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-resource-flow/master.svg
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-resource-flow.svg
+[version-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-resource-flows.svg?label=stable
+[license-badge]: https://img.shields.io/badge/license-MIT-informational.svg
+[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-resource-flows/master.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-resource-flows.svg?color=brightgreen
+[stars-badge]: https://img.shields.io/github/stars/sebastiaanluca/laravel-resource-flows.svg?color=brightgreen
 
 [blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
 [packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
-[link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-resource-flow
-[link-travis]: https://travis-ci.org/sebastiaanluca/laravel-resource-flow
+[link-github]: https://github.com/sebastiaanluca/laravel-resource-flows
+[link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-resource-flows
+[link-travis]: https://travis-ci.org/sebastiaanluca/laravel-resource-flows
+[link-twitter-share]: https://twitter.com/intent/tweet?text=Quickly%20scaffold%20access%20to%20a%20resource%20or%20action%20with%20Laravel%20Resource%20Flow.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-resource-flow
 [link-contributors]: ../../contributors
 
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
-[link-twitter-share]: https://twitter.com/intent/tweet?text=Quickly%20scaffold%20access%20to%20a%20resource%20or%20action%20with%20Laravel%20Resource%20Flow.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-resource-flow
 [link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com
