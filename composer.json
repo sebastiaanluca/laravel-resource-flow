@@ -30,12 +30,12 @@
     "require": {
         "php": "^7.2",
         "ext-json": "^1.0",
-        "laravel/framework": "5.8.*"
+        "laravel/framework": "5.8.*|^6.0"
     },
     "require-dev": {
         "kint-php/kint": "^3.2",
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^8.2"
+        "orchestra/testbench": "3.8.*|^4.0",
+        "phpunit/phpunit": "^8.3"
     },
     "autoload": {
         "psr-4": {
@@ -58,6 +58,7 @@
         }
     },
     "scripts": {
+        "composer-validate": "@composer validate --no-check-all --strict --ansi",
         "test": "vendor/bin/phpunit",
         "test-lowest": [
             "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
@@ -67,5 +68,7 @@
             "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
             "@test"
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
