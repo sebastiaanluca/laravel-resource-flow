@@ -40,6 +40,8 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Register the application services.
+     *
+     * @return void
      */
     public function register() : void
     {
@@ -47,6 +49,8 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Bootstrap the application services.
+     *
+     * @return void
      */
     public function boot() : void
     {
@@ -57,6 +61,8 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Register predefined listeners event listeners.
+     *
+     * @return void
      */
     protected function registerListeners() : void
     {
@@ -73,6 +79,8 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Map polymorphic models to their alias.
+     *
+     * @return void
      */
     protected function mapModelMorphAliases() : void
     {
@@ -81,6 +89,8 @@ abstract class Provider extends ServiceProvider
 
     /**
      * Map out all predefined module routes.
+     *
+     * @return void
      */
     protected function mapRoutes() : void
     {

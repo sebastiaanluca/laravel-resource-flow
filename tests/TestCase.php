@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Flow\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
@@ -7,14 +9,12 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 class TestCase extends BaseTestCase
 {
     /**
-     * @param $app
+     * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
-        return [
-            //
-        ];
+        return [];
     }
 }

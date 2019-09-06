@@ -4,7 +4,13 @@ All Notable changes to `sebastiaanluca/laravel-resource-flow` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-##  Unreleased
+## 0.7.0 (2019-09-06)
+
+### Added
+
+- Added support for Laravel 6.0
+
+## 0.6.0
 
 ### Added
 
