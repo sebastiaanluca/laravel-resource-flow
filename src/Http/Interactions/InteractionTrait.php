@@ -13,6 +13,8 @@ trait InteractionTrait
      *
      * @param mixed $response
      *
+     * @return void
+     *
      * @throws \SebastiaanLuca\Flow\Exceptions\InteractionFailed
      */
     private function failedInteraction($response) : void

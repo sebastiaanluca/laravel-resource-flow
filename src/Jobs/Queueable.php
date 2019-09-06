@@ -17,5 +17,3 @@ trait Queueable
 {
     use Dispatchable, InteractsWithQueue, IlluminateQueueable, SerializesModels;
 }
-
-
