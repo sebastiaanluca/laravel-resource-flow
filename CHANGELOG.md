@@ -4,6 +4,12 @@ All Notable changes to `sebastiaanluca/laravel-resource-flow` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 0.7.1 (2019-09-16)
+
+### Fixed
+
+- Fixed an issue where the request handler could not handle optional route parameters or parameters with defaults set
+
 ## 0.7.0 (2019-09-06)
 
 ### Added

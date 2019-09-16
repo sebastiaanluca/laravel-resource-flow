@@ -39,6 +39,9 @@
         "sebastiaanluca/php-codesniffer-ruleset": "^0.4.2"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "SebastiaanLuca\\Flow\\": "src"
         }
