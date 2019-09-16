@@ -37,14 +37,14 @@ class RequestHandler extends Controller
     private function handleRequest(...$arguments)
     {
         if (method_exists($this, 'before')) {
-            $response = app()->call([$this, 'before'], $arguments);
+            $response = flow_call_method([$this, 'before'], $arguments);
         }
 
         if (isset($response) && $response !== null) {
             return $response;
         }
 
-        return app()->call([$this, 'handle'], $arguments);
+        return flow_call_method([$this, 'handle'], $arguments);
     }
 
     /**
