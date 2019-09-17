@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SebastiaanLuca\Flow\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use SebastiaanLuca\Flow\Providers\ResourceFlowServiceProvider;
 
 class TestCase extends BaseTestCase
 {
@@ -15,6 +16,8 @@ class TestCase extends BaseTestCase
      */
     protected function getPackageProviders($app) : array
     {
-        return [];
+        return [
+            ResourceFlowServiceProvider::class,
+        ];
     }
 }
